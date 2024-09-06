@@ -1,6 +1,6 @@
 public class Media{
 	private String title;
-	private string url;
+	private String url;
 
 	public Media(String title, String url){
 	    this.title = title;
@@ -8,7 +8,7 @@ public class Media{
 	}
 	@Override
 	public String toString(){
-	    return title + "(" + url + ")"
+	    return title + "(" + url + ")";
 	}
 
 	public String getTitle(){
