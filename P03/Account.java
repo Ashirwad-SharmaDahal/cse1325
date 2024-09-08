@@ -15,4 +15,8 @@ public class Account{
 	    return nextAccountNumber;
 	}
 
+	public String play(Media media){
+		return "Playing " + media.toString();
+	}
+
 }

@@ -1,18 +1,20 @@
 public class TestAccount{
 	public static void main(String[] args){
 	    Account firstaccount = new Account();
-	    Account secondaccount = new Account();
+	    Account nextaccount = new Account();
 
-	if(firstaccount != 1){
+	if(firstaccount.getAccountNumber() != 1){
 	    System.out.println("FAIL!");
 	    System.out.println("Expected: 1");
-	    System.out.println("Actual: " + getAccountNumber());
+	    System.out.println("Actual: " + firstaccount.getAccountNumber());
+	    System.exit(1);
 	}
 
-	if(secondaccount != 2){
+	if(nextaccount.getAccountNumber() != 2){
 	System.out.println("FAIL!");
-	    System.out.println("Expected: 1");
-	    System.out.println("Actual: " + getNextAccountNumber());
+	    System.out.println("Expected: 2");
+	    System.out.println("Actual: " + nextaccount.getAccountNumber());
+	    System.exit(1);
 	}
 	}
 

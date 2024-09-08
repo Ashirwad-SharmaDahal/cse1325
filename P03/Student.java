@@ -1,18 +1,17 @@
 public class Student{
-	public static void main(String[] args){
 	    private String name;
 	    private int id;
 	    private String email;
 	    private Account account;
 
 	    public Student(String name, int id, String email){
-	        if(!email.endswith(@uta.edu) || !email.endswith(@mavs.uta.edu)){
+	        if(!email.endsWith("@uta.edu") || !email.endsWith("@mavs.uta.edu")){
 	            throw new IllegalArgumentException("Non-UTA email");
 	        }
 	        this.name = name;
 	        this.id = id;
 	        this.email = email;
-	        this.Account = new account();
+	        this.account = new Account();
 	    }
 
 	    public String requestMedia(Media media){
@@ -40,4 +39,3 @@ public class Student{
 	        return account;
 	    }
 	}
-}
