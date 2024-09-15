@@ -1,10 +1,11 @@
 package test;
-import customer.Account;
+import customer.Unlimited;
+import product.Media;
 
 public class TestAccount{
 	public static void main(String[] args){
-	    Account firstaccount = new Account();
-	    Account nextaccount = new Account();
+	    Unlimited firstaccount = new Unlimited();
+	    Unlimited nextaccount = new Unlimited();
 
 	if(firstaccount.getAccountNumber() != 1){
 	    System.out.println("FAIL!");
