@@ -3,9 +3,9 @@ import product.Media;
 
 public class TestMedia{
 	public static void main(String[] args){
-	    Media media = new Media ("Music Station", "https://musicstation.com");
+	    Media media = new Media ("Music Station", "https://musicstation.com", 50);
 
-	String expected = ("Music Station(https://musicstation.com)");
+	String expected = ("Music Station(https://musicstation.com), Points: 50");
 
 	String actual = media.toString();
 
@@ -17,5 +17,6 @@ public class TestMedia{
         else{
 
         }
+        //System.out.println(media.toString());
 	}
 }
