@@ -42,8 +42,8 @@ public class TestStudent{
 
     try{
     	Student student = new Student("Ash Dahal", 1227354632, "axd5643@mavs.uta.edu");
-    	Media media = new Media("moviecenter", "https://moviecenter.com");
-    	String expected = "Playing moviecenter(https://moviecenter.com)";
+    	Media media = new Media("moviecenter", "https://moviecenter.com", 25);
+    	String expected = "Playing moviecenter(https://moviecenter.com), Points: 25";
     	String actual = student.requestMedia(media);
 
     	if(!expected.equals(actual)){
