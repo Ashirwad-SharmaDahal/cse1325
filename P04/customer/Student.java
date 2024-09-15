@@ -7,12 +7,16 @@ public class Student{
 	    private String email;
 	    private Account account;
 
-	    public Student(String name, int id, String email){
+	    public Student(String name, int id, String email, boolean isAlacarte){
 	        if(!email.endsWith("@uta.edu") || !email.endsWith("@mavs.uta.edu")){
 	        this.name = name;
 	        this.id = id;
 	        this.email = email;
-	        this.account = new Account();
+	        if (isAlacarte){
+	            this.account = new Alacarte();
+	        }else{
+	        	this.account = new Unlimited();
+	        }
 	    }else{
 	    	    throw new IllegalArgumentException("Non-UTA email");
 	    }
