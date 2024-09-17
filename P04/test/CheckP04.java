@@ -13,7 +13,8 @@
 // no guarantee of any kind, express or implied, with respect to the completeness, 
 // accuracy, availability, or suitability to any particular purpose.
 // Your decision to use this software is ENTIRELY at your own risk.
-package test;
+package test;1
+
 import moes.Moes;
 
 import product.Media;
