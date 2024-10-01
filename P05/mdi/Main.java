@@ -196,7 +196,7 @@ public class Main{
     	int points = menu.getInt("Enter points to buy: ", null);
     	if(points > 0){
     		moes.buyPoints(studentIndex, points);
-    		output += "\nNew points" + moes.getPoints(studentIndex);
+    		output += "\nNew points: " + moes.getPoints(studentIndex);
     	}else{
     		output = "Cannot buy negative or zero points!";
         }
@@ -213,14 +213,14 @@ public class Main{
     	output = "";
     	running = true;
 
-        menu.addMenuItem(new MenuItem("Add Student", this::addStudent));
-        menu.addMenuItem(new MenuItem("List Students", this::listStudents));
-        menu.addMenuItem(new MenuItem("Add Media", this::addMedia));
-        menu.addMenuItem(new MenuItem("List Media", this::listMedia));
-        menu.addMenuItem(new MenuItem("Play Media", this::playMedia));
-        menu.addMenuItem(new MenuItem("List Available Points", this::listAvailablePoints));
-        menu.addMenuItem(new MenuItem("Buy Points", this::buyPoints));
-        menu.addMenuItem(new MenuItem("Exit", this::endApp));   
+        menu.addMenuItem(new MenuItem("Add Student", () -> addStudent()));
+        menu.addMenuItem(new MenuItem("List Students", () -> listStudents()));
+        menu.addMenuItem(new MenuItem("Add Media", () -> addMedia()));
+        menu.addMenuItem(new MenuItem("List Media", () -> listMedia()));
+        menu.addMenuItem(new MenuItem("Play Media", () -> playMedia()));
+        menu.addMenuItem(new MenuItem("List Available Points", () -> listAvailablePoints()));
+        menu.addMenuItem(new MenuItem("Buy Points", () -> buyPoints()));
+        menu.addMenuItem(new MenuItem("Exit", () -> endApp()));   
     }
 
     public static void main(String[] args){
