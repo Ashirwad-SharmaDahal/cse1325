@@ -224,9 +224,20 @@ public class Main{
     }
 
     public static void main(String[] args){
+        displayLogo();
     	Main app = new Main();
     	app.mdi();
     }
+
+     private static void displayLogo() {
+       
+        System.out.println("-----------------------------------------------");
+        System.out.println("| Mavs Online Entertainment System (MOES)     |");
+        System.out.println("|                Version 0.3.0                |");
+        System.out.println("|           ©2024 Ashirwad Sharma Dahal       |");
+        System.out.println("------------------------------------------------");
+    }
+
 
     private void mdi(){
     	while(running){
