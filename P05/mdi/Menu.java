@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Menu {
     private List<MenuItem> items = new ArrayList<>();
-    private static Scanner in = new Scanner(System.in); // Declare Scanner
+    private static Scanner in = new Scanner(System.in); 
 
     public void addMenuItem(MenuItem item) {
         items.add(item);
@@ -18,17 +18,17 @@ public class Menu {
         StringBuilder sb = new StringBuilder();
         sb.append("Menu:\n");
         for (int i = 0; i < items.size(); ++i) {
-            sb.append((i + 1) + "] " + items.get(i) + "\n"); // 1-based index for user friendliness
+            sb.append((i + 1) + "] " + items.get(i) + "\n"); 
         }
         return sb.toString();
     }
 
     public void display() {
-        System.out.println(this); // Print the menu
+        System.out.println(this); 
     }
 
     public void run(int itemNumber) {
-        items.get(itemNumber - 1).run(); // Adjust for 1-based index
+        items.get(itemNumber - 1).run(); 
     }
 
     public void startMenu() {
@@ -39,9 +39,9 @@ public class Menu {
                 System.out.println("Invalid choice. Please try again.");
             } else if (choice == items.size()) {
                 System.out.println("Exiting...");
-                break; // Exit the loop if user chooses the exit option
+                break; 
             } else {
-                run(choice); // Run the selected menu item
+                run(choice); 
             }
         }
     }
@@ -51,7 +51,7 @@ public class Menu {
         while (true) {
             try {
                 System.out.print(prompt);
-                s = in.nextLine().trim(); // Use the declared Scanner
+                s = in.nextLine().trim(); 
                 if (s.isEmpty() && defaultInput != null) s = defaultInput;
                 break;
             } catch (Exception e) {
