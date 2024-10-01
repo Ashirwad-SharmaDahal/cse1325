@@ -46,42 +46,6 @@ public class Main{
 
     }
 
-    /*private void playMedia(){
-    	while(true){
-    		System.out.println("\n----------------------");
-    		System.out.println("List of students: " + moes.getStudentList());
-    		System.out.println("List of media: " + moes.getMediaList());
-    		System.out.println("\n----------------------");
-    		int studentIndex = Menu.getInt("Enter student index: ", null);
-      		int mediaIndex = Menu.getInt("Enter media index", null);
-      		String studentList = moes.getStudentList();
-        	String mediaList = moes.getMediaList();
-
-        	String[] students = studentList.split(", ");
-        	String[] media = mediaList.split(", ");
-
-        	if (studentIndex < 1 || studentIndex > students.length) {
-            	System.out.println("Invalid student index! Please choose a valid student from the list.");
-            	continue; // Prompt for input again
-        	}
-        	if (mediaIndex < 1 || mediaIndex > media.length) {
-            	System.out.println("Invalid media index! Please choose a valid media from the list.");
-            	continue; // Prompt for input again
-       		}
-    		output = moes.playMedia(studentIndex, mediaIndex);
-    		System.out.println("\n------------------");
-    		System.out.println("\n"+output);
-    	    System.out.println("\n------------------");
-
-    	    String continueChoice = Menu.getString("Do you want to continue playing media? (yes/no): ", null, null);
-            if (!continueChoice.equalsIgnoreCase("yes")) {
-                System.out.println("Exiting play media.");
-            break;
-            }
-
-    	}    
-
-    }*/
     
     private void playMedia() {
     while (true) {
@@ -100,7 +64,6 @@ public class Main{
         String[] students = studentList.split(", ");
         String[] media = mediaList.split(", ");
 
-        // Check if the indices are valid
         if (studentIndex < 0 || studentIndex >= students.length) {
             System.out.println("Invalid student index! Please choose a valid student from the list.");
             continue; 
@@ -123,31 +86,6 @@ public class Main{
         }
     }
    }
-
-
-    /*private void playMedia() {
-    	System.out.println("Available Students:");
-    	System.out.println(moes.getStudentList()); // Assuming this method returns a formatted list of students
-
-    	int studentIndex = Menu.getInt("Enter the student index from the list: ", null);
-    	if (studentIndex < 0 || studentIndex >= moes.getStudentList().size()) {
-        	System.out.println("Invalid student index! Please choose a valid student from the list.");
-        	return; // Exit early if index is out of bounds
-    	}
-
-    	System.out.println("Available Media:");
-    	System.out.println(moes.getMediaList()); // Assuming this method returns a formatted list of media
-
-    	int mediaIndex = Menu.getInt("Enter the media index from the list: ", null);
-    	if (mediaIndex < 0 || mediaIndex >= moes.getMediaList().size()) {
-        	System.out.println("Invalid media index! Please choose a valid media from the list.");
-        	return; // Exit early if index is out of bounds
-    	}
-
-    	output = moes.playMedia(studentIndex, mediaIndex);
-    	System.out.println(output); // Display the result of playing the media
-    }
-    */
 
 
     private void listMedia() {
