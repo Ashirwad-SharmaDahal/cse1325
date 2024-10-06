@@ -1,5 +1,9 @@
 package customer;
 import product.Media;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 /**
  * Represents an abstract Account class for MOES
  * @author Ashirwad Sharma Dahal
@@ -17,6 +21,16 @@ public abstract class Account{
 	public Account(){
 	    this.accountNumber = nextAccountNumber;
 	    nextAccountNumber++;
+	}
+
+	public Account(BufferedReader br) throws IOException{
+		this.accountNumber = Integer.parseInt(br.readLine());
+		nextAccountNumber = Integer.parseInt(br.readLine());
+	}
+
+	public void save(BufferedWriter bw) throws IOException{
+		bw.write(Integer.toString(accountNumber) + '\n');
+		bw.write(Integer.toString(nextAccountNumber) + '\n');
 	}  
 
 /**
