@@ -1,5 +1,8 @@
 package customer;
 import product.Media;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 /**
  * Repesents an Alacarte account in the MOES system
@@ -9,6 +12,15 @@ import product.Media;
  */ 
 public class Alacarte extends Account{
 	private int pointsRemaining = 0;
+
+    public Alacarte(){
+        super();
+    }
+
+    public Alacarte(BufferedReader br) throws IOException{
+        super(br);
+        pointsRemaining = Integer.parseInt(br.readLine());
+    }
     
     /**
      * Adds points for future use
@@ -45,4 +57,10 @@ public class Alacarte extends Account{
         	return "Buy more points: Requires :" + pointsRequired + "points, Points you have: " + pointsRemaining;
         }
 	}
+
+    public void save(BufferedWriter bw) throws IOException{
+        super.save(bw);
+        bw.write(String.valueOf(pointsRemaining));
+        bw.newLine();
+    }
 }
