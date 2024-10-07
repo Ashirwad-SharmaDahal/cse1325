@@ -5,7 +5,11 @@ import customer.Unlimited;
 import customer.Alacarte;
 import customer.Account;
 
+
 import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.IOException;
 /**
  * It is the interface class to the customer and product packages.
  * @author Ashirwad Sharma Dahal
@@ -15,6 +19,35 @@ import java.util.ArrayList;
 public class Moes{
 	private ArrayList<Media> library = new ArrayList<>();
 	private ArrayList<Student> customers = new ArrayList<>();
+
+	public void save(BufferedWriter bw) throws IOException{
+		bw.write(String.valueOf(library.size()));
+		bw.newLine();
+		for(Media media : library){
+			media.save(bw);
+		}
+
+	   bw.write(String.valueOf(customers.size()));
+	   bw.newLine();
+	   for(Student student : customers){
+		student.save(bw);
+	   }	
+		
+	}
+
+	public void reconstruct(BufferedReader br) throws IOException{
+		int librarySize = Integer.parseInt(br.readLine());
+		library = new ArrayList<>();
+		for(int i = 0; i < librarySize; i++){
+			library.add(new Media(br));
+		}
+
+		int customerSize = Integer.parseInt(br.readLine());
+		customers = new ArrayList<>();
+		for(int i = 0; i < customerSize; i++){
+			customers.add(new Student(br));
+		}
+	}
 
 /**
  * Adds a media item to MOES library
