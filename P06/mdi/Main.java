@@ -8,8 +8,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.FileReader;
+import java.io.File;
 
-public class Main{
+public class Main{ 
 	private Moes moes;
 	private String output;
 	private Menu menu;
@@ -214,7 +215,7 @@ public class Main{
             if ("yes".equalsIgnoreCase(choose)) {
                 save();
             } else if ("no".equalsIgnoreCase(choose)) {
-            clearDirty();  // Discard unsaved changes
+            clearDirty();  
             } else {
                 System.out.println("Operation cancelled.");
             }
@@ -277,12 +278,22 @@ public class Main{
             saveAs();
             return;
         }
+        File existingFile = new File(filename);
+        if (existingFile.exists()) {
+            File backupFile = new File(filename + "~");
+            if (!existingFile.renameTo(backupFile)) {
+                System.out.println("Failed to backup existing file: " + filename);
+                return;
+            }
+            System.out.println("Backup created: " + backupFile.getAbsolutePath());
+        }
+
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(filename))){
             writer.write(MAGIC_COOKIE);
             writer.newLine();
             writer.write(FILE_VERSION);
             writer.newLine();
-            moes.save(writer); // Save the MOES data
+            moes.save(writer); 
             System.out.println("Data saved to " + filename);
         } catch (IOException e) {
             System.out.println("Error saving file: " + e.getMessage());
