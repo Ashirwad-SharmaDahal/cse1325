@@ -33,12 +33,13 @@ public class Menu {
 
     public void startMenu() {
         while (true) {
-            display(); // Show the menu
+            display(); 
             int choice = getInt("Choose an option (1 to " + items.size() + "): ", null);
             if (choice < 1 || choice > items.size()) {
                 System.out.println("Invalid choice. Please try again.");
             } else if (choice == items.size()) {
                 System.out.println("Exiting...");
+                System.exit(0);
                 break; 
             } else {
                 run(choice); 

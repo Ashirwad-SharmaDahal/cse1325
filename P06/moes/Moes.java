@@ -20,6 +20,13 @@ public class Moes{
 	private ArrayList<Media> library = new ArrayList<>();
 	private ArrayList<Student> customers = new ArrayList<>();
 
+	public Moes() {
+    }
+
+    public Moes(BufferedReader br) throws IOException {
+        reconstruct(br);
+    }
+
 	public void save(BufferedWriter bw) throws IOException{
 		bw.write(String.valueOf(library.size()));
 		bw.newLine();

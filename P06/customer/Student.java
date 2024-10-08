@@ -11,7 +11,7 @@ public class Student{
 	    private Account account;
 
 	    public Student(String name, int id, String email, boolean isAlacarte){
-	        if(!email.endsWith("@uta.edu") || !email.endsWith("@mavs.uta.edu")){
+	        if(email.endsWith("@uta.edu") || email.endsWith("@mavs.uta.edu")){
 	        this.name = name;
 	        this.id = id;
 	        this.email = email;
