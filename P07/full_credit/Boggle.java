@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.HashSet;
-
 import java.util.Objects;
 
 public class Boggle {
@@ -41,6 +40,8 @@ public class Boggle {
             }
         }
     }
+
+
     // =========== END THREAD METHOD ===========
 
 
@@ -92,6 +93,30 @@ public class Boggle {
             
             // =========== CHANGE THIS BLOCK OF CODE TO ADD THREADING ===========
             // Find words on the Boggle boards, collecting the solutions in a TreeSet
+            List<Thread> threads = new ArrayList<>();
+            double boardsPerThread = (double) numberOfBoards / numThreads;
+
+            for (int threadNumber = 0; threadNumber < numThreads; threadNumber++) {
+                final int first = (int) (threadNumber * boardsPerThread);
+                final int lastPlusOne = (threadNumber == numThreads - 1) 
+                    ? numberOfBoards 
+                    : (int) ((threadNumber + 1) * boardsPerThread);
+                final int currentThreadNumber = threadNumber;
+                Thread thread = new Thread(() -> solveRange(first, lastPlusOne, currentThreadNumber));
+                threads.add(thread);
+                thread.start();
+            }
+
+            for (Thread thread : threads) {
+                try {
+                    thread.join();
+                } catch (InterruptedException e) {
+                    System.err.println("Thread interrupted: " + e.getMessage());
+                }
+            }
+
+
+            /*
             List<Thread> threads = new ArrayList<>();
             double boardsPerThread = (double) numberOfBoards / numThreads;
 
