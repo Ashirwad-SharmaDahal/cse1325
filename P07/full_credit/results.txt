@@ -12,6 +12,7 @@ NOTE: These are measurements which may vary plus your opinions which may vary a 
 
 QUESTION 1: What Boggle command line arguments ([#boards] and if not default [boardSize])did you use to achieve a 30 to 45 second runtime? Note: We're only interested in the "real" seconds for this question.
 
+=> time java Boggle 70 60
 
 
 
@@ -21,17 +22,114 @@ QUESTION 2: Provide the full output (including the time command) for your progra
 
 for i in {1..16} ; do echo ; echo $i Threads; time java Boggle 90 - $i ; done
 
+=>
+1 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  33.19s user 0.29s system 102% cpu 32.637 total
+
+2 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  30.80s user 0.30s system 203% cpu 15.294 total
+
+3 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  31.82s user 0.29s system 298% cpu 10.755 total
+
+4 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  25.37s user 0.29s system 390% cpu 6.567 total
+
+5 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  34.89s user 0.33s system 497% cpu 7.082 total
+
+6 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  36.91s user 0.34s system 575% cpu 6.469 total
+
+7 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  39.96s user 0.40s system 673% cpu 5.995 total
+
+8 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  42.76s user 0.48s system 738% cpu 5.853 total
+
+9 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  42.40s user 0.50s system 742% cpu 5.774 total
+
+10 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  40.30s user 0.54s system 743% cpu 5.493 total
+
+11 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  41.86s user 0.59s system 735% cpu 5.770 total
+
+12 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  40.72s user 0.54s system 750% cpu 5.496 total
+
+13 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  42.72s user 0.55s system 733% cpu 5.901 total
+
+14 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  45.23s user 0.57s system 759% cpu 6.030 total
+
+15 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  43.42s user 0.65s system 751% cpu 5.866 total
+
+16 Threads
+
+Found 29948 solutions
+Hash is 0x48597EC4
+java Boggle 70 60 $i  45.59s user 0.57s system 747% cpu 6.172 total
+
 
 
 
 QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program slightly?  Why or why not?
 
-
+=> Initially, the time decreases as I increase the number of threads(1-4). However, after a certain point, the execution time increases or doesnt decrease significantly. This is due to increase in context switching between threads.
 
 QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
 
-Yes, from 0.285 seconds to 1.667 seconds for this data set
-
+Yes, from 0.29 seconds to 0.57 seconds for this data set
+Adding more threads generally increases the system load due to increased overhead in managing and switching between threads. This is why the system time rises as more threads are added.
 
 
 
