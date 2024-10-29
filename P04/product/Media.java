@@ -25,6 +25,21 @@ public class Media{
 	    this.url = url; 
 	    this.points = points;
 	}
+
+	public Media(BufferedReader br) throws IOException{
+		this.title = br.readLine();
+		this.url = br.readLine();
+		this.points = Integer.parseInt(br.readLine());
+	}
+
+	public void save(BufferedWriter bw) throws IOException{
+		bw.write(title + '\n');
+		bw.write(url + '\n');
+		bw.write(Integer.toString(points) + '\n');
+	}
+
+
+
 	/**
 	 * @return the number of points required
 	 * @since 2024-09-15
