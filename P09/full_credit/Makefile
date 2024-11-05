@@ -11,3 +11,4 @@ clock.o: clock.cpp *.h
 
 clean:
 	-rm -f *.o *.gch *~ a.out clock
+
