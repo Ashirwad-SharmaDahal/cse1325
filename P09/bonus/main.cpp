@@ -1,39 +1,36 @@
-#include "clock.h"
 #include <iostream>
-#include <stdexcept>
+#include "timer.h"
 
 int main(int argc, char* argv[]) {
-    
     if (argc != 4) {
-        std::cerr << "usage: clock <hour> <minutes> <seconds>" << std::endl;
+        std::cerr << "usage: timer <hour> <minutes> <seconds>" << std::endl;
         return -1;
     }
 
+    int hours = std::stoi(argv[1]);
+    int minutes = std::stoi(argv[2]);
+    int seconds = std::stoi(argv[3]);
+
     try {
-        int hours = std::stoi(argv[1]);
-        int minutes = std::stoi(argv[2]);
-        int seconds = std::stoi(argv[3]);
+        Timer timer(hours, minutes, seconds);
 
-        Clock clock(hours, minutes, seconds);
-
+        std::string input;
         while (true) {
-            clock.print(); 
+            timer.print(); 
+            std::getline(std::cin, input); 
 
-            std::string input;
-            std::cout << "Enter 'q' to quit or press Enter to tic: ";
-            std::getline(std::cin, input);
+            if (input == "q") {
+                break; 
+            }
 
-            if (input == "q") break;
-
-            clock.tic(); 
+            timer.tic(); 
         }
     } catch (const std::out_of_range& e) {
         std::cerr << e.what() << std::endl;
         return -2;
-    } catch (const std::invalid_argument&) {
-        std::cerr << "Invalid time arguments provided." << std::endl;
-        return -1;
+    } catch (const std::runtime_error& e) {
+        std::cout << e.what() << std::endl; 
     }
 
-    return 0;
+    return 0; 
 }
