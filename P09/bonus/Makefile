@@ -1,4 +1,4 @@
-CXXFLAGS += --std=c++21
+CXXFLAGS += --std=c++20
 
 main: main.o clock.o timer.o *.h
 	$(CXX) $(CXXFLAGS) main.o clock.o timer.o -o timer
@@ -14,4 +14,5 @@ timer.o: timer.cpp *.h
 
 clean:
 	-rm -f *.o *.gch *~ a.out clock
+
 
