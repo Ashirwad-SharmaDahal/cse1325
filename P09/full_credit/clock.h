@@ -14,7 +14,7 @@ public:
     void print() const;   
     void tic();          
 
-private:
+protected:
     int _hours;
     int _minutes;
     int _seconds;
