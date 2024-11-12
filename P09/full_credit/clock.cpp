@@ -2,7 +2,6 @@
 
 Clock::Clock(int hours, int minutes, int seconds) 
     : _hours(hours), _minutes(minutes), _seconds(seconds) {
-    // Validate hours, minutes, and seconds
     if (hours < 0 || hours > 23) {
         throw std::out_of_range("Hours must be between 0 and 23");
     }
