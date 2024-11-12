@@ -13,16 +13,16 @@ int main() {
 
     for (int i = 0; i < numAccounts; ++i) {
         std::string name;
-        int pounds, shillings, pence;
+        Purse deposit;
 
         std::cout << "Enter account name: ";
         std::getline(std::cin, name);
 
-        std::cout << "Enter initial deposit (pounds shillings pence): ";
-        std::cin >> pounds >> shillings >> pence;
+        std::cout << "Enter initial deposit (format: # pounds shillings s pence d): ";
+        std::cin >> deposit;
         std::cin.ignore();
 
-        vault[name] = Purse(pounds, shillings, pence);
+        vault[name] = deposit;
     }
 
     Purse total;

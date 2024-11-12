@@ -20,6 +20,7 @@ public:
     Purse& operator-=(const Purse& other);
 
     friend std::ostream& operator<<(std::ostream& os, const Purse& purse);
+    friend std::istream& operator>>(std::istream& is, Purse& purse); 
 };
 
 #endif 
