@@ -40,4 +40,5 @@ public:
 		os.fill(old_fill);
 		return os;
 	}
-}	
+};
+#endif
